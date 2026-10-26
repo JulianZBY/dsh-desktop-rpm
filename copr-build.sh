@@ -3,11 +3,11 @@
 # https://copr.fedorainfracloud.org/coprs/ -> package -> source method: custom
 set -euxo pipefail
 
-SPEC_RAW="https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/dsh-desktop-rpm/main"
+SPEC_RAW="https://raw.githubusercontent.com/JulianZBY/dsh-desktop-rpm/main"
 UPSTREAM="https://github.com/anywhere-labs/dsh-desktop"
 
-if [[ "$SPEC_RAW" == *"YOUR_GITHUB_USERNAME"* ]]; then
-    echo "ERROR: replace YOUR_GITHUB_USERNAME in copr-build.sh first" >&2
+if [[ "$SPEC_RAW" == *"JulianZBY"* ]]; then
+    echo "ERROR: replace JulianZBY in copr-build.sh first" >&2
     exit 1
 fi
 
