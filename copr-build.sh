@@ -8,7 +8,8 @@ UPSTREAM="https://github.com/anywhere-labs/dsh-desktop"
 TAG=$(git ls-remote --tags "${UPSTREAM}.git" "v*-next" | awk -F/ '{print $3}' | grep -E '^v[0-9.]+-next$' | sort -V | tail -1)
 VER=${TAG#v}
 case "$VER" in
-    *[!0-9.]*|'') echo "ERROR: bad next version resolved: ${VER:-empty}" >&2; exit 1 ;;
+    [0-9]*.[0-9]*.[0-9]*-next) ;;
+    *) echo "ERROR: bad next version resolved: ${VER:-empty}" >&2; exit 1 ;;
 esac
 
 TGZ="DSH-NEXT-${VER}-linux-x64.tar.gz"
