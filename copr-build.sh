@@ -5,7 +5,7 @@ set -euxo pipefail
 SPEC_RAW="https://raw.githubusercontent.com/JulianZBY/dsh-desktop-rpm/main"
 UPSTREAM="https://github.com/anywhere-labs/dsh-desktop"
 
-TAG=$(curl -sSfL "${UPSTREAM}/releases?per_page=30" \
+TAG=$(curl -sSfL "https://api.github.com/repos/anywhere-labs/dsh-desktop/releases?per_page=30" \
     | grep -m1 -oE '"tag_name": *"v[0-9.]+-next"' | grep -oE 'v[0-9.]+-next')
 VER=${TAG#v}
 case "$VER" in
