@@ -39,8 +39,8 @@ Requires:       libXrender
 %define debug_package %{nil}
 
 %description
-DeepSeek Harness desktop application, built from the official upstream
-Linux x64 tarball. Community RPM packaging; app lives under /opt/dsh-desktop.
+DeepSeek Harness desktop application by anywhere-labs, built from
+their upstream release tarball. Community RPM packaging; app lives under /opt/dsh-desktop.
 
 %prep
 %setup -q -n DSH-Desktop-%{version}-linux-x64
