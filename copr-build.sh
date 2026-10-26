@@ -20,7 +20,7 @@ curl -sSfLO "${SPEC_RAW}/SOURCES/dsh-desktop-icon.png"
 curl -sSfLO "${SPEC_RAW}/dsh.desktop"
 
 sed -i -E "s/^(%global upstream_ver ).*/\\1${VER}/" dsh-desktop.spec
-sed -i -E "s/^(Version:[[:space:]]+).*/\\1${VER/-/~}/" dsh-desktop.spec
+sed -i -E "s/^(Version:[[:space:]]+).*/\\1${VER/-/\~}/" dsh-desktop.spec
 
 rpmbuild -bs --define "_sourcedir ${PWD}" --define "_srcrpmdir ${PWD}" dsh-desktop.spec
 RESULT="${COPR_RESULTDIR:-${PWD}}"
