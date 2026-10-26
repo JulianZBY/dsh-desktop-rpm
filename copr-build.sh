@@ -6,8 +6,6 @@ set -euxo pipefail
 SPEC_RAW="https://raw.githubusercontent.com/JulianZBY/dsh-desktop-rpm/main"
 UPSTREAM="https://github.com/anywhere-labs/dsh-desktop"
 
-dnf -y -q install rpm-build curl
-
 VER=$(curl -sSfL -o /dev/null -w '%{url_effective}' "${UPSTREAM}/releases/latest" | sed -E 's|.*/tag/v||')
 case "$VER" in
     ''|*[!0-9.]*) echo "ERROR: bad version resolved: $VER" >&2; exit 1 ;;
