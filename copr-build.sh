@@ -15,7 +15,7 @@ TGZ="DSH-Desktop-${VER}-linux-x64.tar.gz"
 curl -sSfL -o "$TGZ" "${UPSTREAM}/releases/download/v${VER}/${TGZ}"
 
 curl -sSfLO "${SPEC_RAW}/dsh-desktop.spec"
-curl -sSfLO "${SPEC_RAW}/dsh-desktop-icon.png"
+curl -sSfLO "${SPEC_RAW}/SOURCES/dsh-desktop-icon.png"
 curl -sSfLO "${SPEC_RAW}/dsh.desktop"
 
 sed -i -E "s/^(Version:[[:space:]]+).*/\\1${VER}/" dsh-desktop.spec
