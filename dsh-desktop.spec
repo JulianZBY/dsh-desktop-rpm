@@ -1,11 +1,12 @@
 Name:           dsh-desktop
-Version:        2.0.18
+Version:        2.0.19~next
 Release:        1%{?dist}
-Summary:        DeepSeek Harness desktop client
+Summary:        DeepSeek Harness desktop client (next channel)
 
+%global upstream_ver 2.0.19-next
 License:        MIT
 URL:            https://github.com/anywhere-labs/dsh-desktop
-Source0:        %{url}/releases/download/v%{version}/DSH-Desktop-%{version}-linux-x64.tar.gz
+Source0:        %{url}/releases/download/v%{upstream_ver}/DSH-NEXT-%{upstream_ver}-linux-x64.tar.gz
 Source1:        dsh-desktop-icon.png
 Source2:        dsh.desktop
 ExclusiveArch:  x86_64
@@ -40,10 +41,11 @@ Requires:       libXrender
 
 %description
 DeepSeek Harness desktop application by anywhere-labs, built from
-their upstream release tarball. Community RPM packaging; app lives under /opt/dsh-desktop.
+their upstream next-channel release tarball. Community RPM packaging;
+app lives under /opt/dsh-desktop.
 
 %prep
-%setup -q -n DSH-Desktop-%{version}-linux-x64
+%setup -q -n DSH-NEXT-%{upstream_ver}-linux-x64
 
 %install
 mkdir -p %{buildroot}/opt/%{name}
@@ -60,5 +62,8 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
+* Mon Oct 26 2026 JulianZBY <JulianZBY@outlook.com> - 2.0.19~next-1
+- Switch to the upstream next channel (next boots without the bundled
+  primary runtime that is missing from all 2.0.18 linux artifacts)
 * Mon Oct 26 2026 JulianZBY <JulianZBY@outlook.com> - 2.0.18-1
 - Initial package from upstream v2.0.18 tarball

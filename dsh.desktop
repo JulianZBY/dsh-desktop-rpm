@@ -2,9 +2,9 @@
 Type=Application
 Version=1.0
 Name=DeepSeek Harness
-Comment=DeepSeek Harness 桌面客户端
-Exec=env ELECTRON_OZONE_PLATFORM_HINT=auto /opt/dsh-desktop/dsh-desktop %U
+Comment=DeepSeek Harness 桌面客户端 (next)
+Exec=env ELECTRON_OZONE_PLATFORM_HINT=auto /opt/dsh-desktop/dsh-desktop-next %U
 Icon=dsh-desktop
 Terminal=false
 Categories=Network;Development;
-StartupWMClass=deepseek-ai-dsh-desktop
+StartupWMClass=dsh-desktop-next
