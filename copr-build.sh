@@ -21,4 +21,5 @@ curl -sSfLO "${SPEC_RAW}/dsh.desktop"
 sed -i -E "s/^(Version:[[:space:]]+).*/\\1${VER}/" dsh-desktop.spec
 
 rpmbuild -bs --define "_sourcedir ${PWD}" --define "_srcrpmdir ${PWD}" dsh-desktop.spec
-cp -v ./*.src.rpm "${COPR_RESULTDIR:-${PWD}}/"
+RESULT="${COPR_RESULTDIR:-${PWD}}"
+if [[ "${RESULT%/}" != "${PWD}" ]]; then cp -v ./*.src.rpm "${RESULT%/}/"; fi
