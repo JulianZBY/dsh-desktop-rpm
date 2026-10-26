@@ -6,11 +6,6 @@ set -euxo pipefail
 SPEC_RAW="https://raw.githubusercontent.com/JulianZBY/dsh-desktop-rpm/main"
 UPSTREAM="https://github.com/anywhere-labs/dsh-desktop"
 
-if [[ "$SPEC_RAW" == *"JulianZBY"* ]]; then
-    echo "ERROR: replace JulianZBY in copr-build.sh first" >&2
-    exit 1
-fi
-
 dnf -y -q install rpm-build curl
 
 VER=$(curl -sSfL -o /dev/null -w '%{url_effective}' "${UPSTREAM}/releases/latest" | sed -E 's|.*/tag/v||')
@@ -28,4 +23,4 @@ curl -sSfLO "${SPEC_RAW}/dsh.desktop"
 sed -i -E "s/^(Version:[[:space:]]+).*/\\1${VER}/" dsh-desktop.spec
 
 rpmbuild -bs --define "_sourcedir ${PWD}" --define "_srcrpmdir ${PWD}" dsh-desktop.spec
-cp -v ./*.src.rpm "${OUTPUTDIR:-${PWD}}/"
+cp -v ./*.src.rpm "${COPR_RESULTDIR:-${PWD}}/"
