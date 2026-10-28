@@ -2,6 +2,15 @@
 
 DeepSeek Harness 桌面端(anywhere-labs 社区项目)的社区 RPM 打包。跟踪上游 **next 频道**,装到 `/opt/dsh-desktop`,带应用菜单入口,chrome-sandbox 以 4755 权限安装(无需 --no-sandbox)。
 
+## 安装(社区 Copr 仓库,Fedora)
+
+```bash
+sudo dnf copr enable julianzby/dsh
+sudo dnf install dsh-desktop --refresh
+```
+
+升级:`sudo dnf upgrade dsh-desktop --refresh`。
+
 ## 为什么是 next 频道
 
 上游 2.0.18 stable 的全部 Linux 产物(tar.gz/AppImage/deb)都缺少捆绑的 primary runtime(`resources/runtime/` 整个不存在,疑似 `prepare:runtime` 备料在 linux 管线上未执行),装机态首启即报 `the bundled primary runtime is missing` 进入 Recovery。next(2.0.19-next)实测不依赖捆绑 runtime,解包即用,故本包跟踪 next。
